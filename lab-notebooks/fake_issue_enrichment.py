@@ -1,3 +1,6 @@
+# coding: utf-8
+
+# this line is required above as py2 interpets this as ascii otherwise and bails with a Non-ASCII character '\xc2' error
 issue={
   "issueDetails" : {
     "issue" : [ {
@@ -51,7 +54,7 @@ issue={
       "issueSource" : "Cisco DNA",
       "issueCategory" : "Onboarding",
       "issueName" : "wireless_client_onboarding",
-      "issueDescription" : null,
+      "issueDescription" : None,
       "issueEntity" : "Client",
       "issueEntityValue" : "00:26:08:E0:F4:97",
       "issueSeverity" : "HIGH",

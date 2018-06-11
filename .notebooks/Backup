@@ -1,0 +1,395 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Plaform Enrichment API for DNA-Center"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from util import get_url\n",
+    "import json\n",
+    "import time"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "https://sandboxdnac.cisco.com:8080/dna/intent/api/v1/device-enrichment\n"
+     ]
+    }
+   ],
+   "source": [
+    "headers =  {'entity_type': 'ip_address', 'entity_value': '10.10.22.74'}\n",
+    "\n",
+    "response = get_url(\"dna/intent/api/v1/device-enrichment\", headers=headers)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{\n",
+      "  \"executionStatusUrl\": \"https://10.10.20.102/api/dnacaap/v1/dnacaap/management/execution-status/8601b105-be53-4d61-8f60-455ac6da438d\", \n",
+      "  \"executionId\": \"8601b105-be53-4d61-8f60-455ac6da438d\", \n",
+      "  \"message\": \"The request has been accepted for execution\"\n",
+      "}\n"
+     ]
+    }
+   ],
+   "source": [
+    "print json.dumps(response, indent=2)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "https://sandboxdnac.cisco.com:8080/dna/intent/api/v1/device-enrichment\n"
+     ]
+    }
+   ],
+   "source": [
+    "headers =  {'entity_type': 'ip_address', \n",
+    "            'entity_value': '10.10.22.74',\n",
+    "            '__runsync' : 'True'}\n",
+    "\n",
+    "response = get_url(\"dna/intent/api/v1/device-enrichment\", headers=headers)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[\n",
+      "  {\n",
+      "    \"deviceDetails\": {\n",
+      "      \"macAddress\": \"00:c8:8b:80:bb:00\", \n",
+      "      \"upTime\": \"150 days, 21:48:19.00\", \n",
+      "      \"bootDateTime\": \"2018-01-11 15:47:26\", \n",
+      "      \"family\": \"Routers\", \n",
+      "      \"snmpContact\": \"\", \n",
+      "      \"lineCardCount\": \"9\", \n",
+      "      \"series\": \"Cisco ASR 1000 Series Aggregation Services Routers\", \n",
+      "      \"errorCode\": null, \n",
+      "      \"interfaceCount\": \"12\", \n",
+      "      \"tunnelUdpPort\": null, \n",
+      "      \"id\": \"5337536f-0bb4-40eb-abd6-676894c9712c\", \n",
+      "      \"inventoryStatusDetail\": \"<status><general code=\\\"SUCCESS\\\"/></status>\", \n",
+      "      \"associatedWlcIp\": \"\", \n",
+      "      \"instanceUuid\": \"5337536f-0bb4-40eb-abd6-676894c9712c\", \n",
+      "      \"lastUpdateTime\": 1528724146282, \n",
+      "      \"reachabilityStatus\": \"Reachable\", \n",
+      "      \"hostname\": \"asr1001-x.abc.inc\", \n",
+      "      \"memorySize\": \"3956371104\", \n",
+      "      \"roleSource\": \"AUTO\", \n",
+      "      \"collectionInterval\": \"Global Default\", \n",
+      "      \"platformId\": \"ASR1001-X\", \n",
+      "      \"collectionStatus\": \"Managed\", \n",
+      "      \"role\": \"BORDER ROUTER\", \n",
+      "      \"location\": null, \n",
+      "      \"type\": \"Cisco ASR 1001-X Router\", \n",
+      "      \"locationName\": null, \n",
+      "      \"lineCardId\": \"5e1b93c1-bed2-4324-b504-7bd0ed564c6d, 80781bb5-32b4-415e-96b4-ce580f66ac6e, aae1f793-fd41-420a-ab0e-4a53ead7af08, 6855077f-deab-479d-bafd-630f3f51cf71, a6fabc8d-3163-4fcb-b6c0-6244d35f69c5, 3ca823be-2c16-4cc8-b870-5993a53f8c50, 9dd486e6-c3b2-4e33-90dc-8e32c8877892, 375caca8-46da-413a-92af-d019a095ef47, 0cb53bff-e124-430e-a2b1-4337b5777a47\", \n",
+      "      \"waasDeviceMode\": null, \n",
+      "      \"apManagerInterfaceIp\": \"\", \n",
+      "      \"neighborTopology\": [\n",
+      "        {\n",
+      "          \"nodes\": [\n",
+      "            {\n",
+      "              \"count\": null, \n",
+      "              \"connectedDevice\": null, \n",
+      "              \"fabricGroup\": null, \n",
+      "              \"nodeType\": \"NetworkDevice\", \n",
+      "              \"description\": \"Switch\", \n",
+      "              \"family\": \"Switches and Hubs\", \n",
+      "              \"radioFrequency\": null, \n",
+      "              \"platformId\": \"WS-C3850-48U-E\", \n",
+      "              \"ip\": \"10.10.22.69\", \n",
+      "              \"clients\": null, \n",
+      "              \"userId\": null, \n",
+      "              \"softwareVersion\": \"16.6.2s\", \n",
+      "              \"deviceType\": \"Cisco Catalyst38xx stack-able ethernet switch\", \n",
+      "              \"healthScore\": 10, \n",
+      "              \"role\": \"DISTRIBUTION\", \n",
+      "              \"level\": 0, \n",
+      "              \"id\": \"99b1ec00-3dcb-44b8-9b6e-2ad6fc141f36\", \n",
+      "              \"name\": \"cs3850.abc.inc\"\n",
+      "            }, \n",
+      "            {\n",
+      "              \"count\": null, \n",
+      "              \"connectedDevice\": null, \n",
+      "              \"fabricGroup\": null, \n",
+      "              \"nodeType\": \"NetworkDevice\", \n",
+      "              \"description\": \"Router\", \n",
+      "              \"family\": \"Routers\", \n",
+      "              \"radioFrequency\": null, \n",
+      "              \"platformId\": \"ASR1001-X\", \n",
+      "              \"ip\": \"10.10.22.74\", \n",
+      "              \"clients\": null, \n",
+      "              \"userId\": null, \n",
+      "              \"softwareVersion\": \"16.6.1\", \n",
+      "              \"deviceType\": \"Cisco ASR 1001-X Router\", \n",
+      "              \"healthScore\": 10, \n",
+      "              \"role\": \"BORDER ROUTER\", \n",
+      "              \"level\": 1, \n",
+      "              \"id\": \"5337536f-0bb4-40eb-abd6-676894c9712c\", \n",
+      "              \"name\": \"asr1001-x.abc.inc\"\n",
+      "            }\n",
+      "          ], \n",
+      "          \"links\": [\n",
+      "            {\n",
+      "              \"target\": \"5337536f-0bb4-40eb-abd6-676894c9712c\", \n",
+      "              \"label\": [], \n",
+      "              \"source\": \"99b1ec00-3dcb-44b8-9b6e-2ad6fc141f36\", \n",
+      "              \"portUtilization\": null, \n",
+      "              \"linkStatus\": \"UP\", \n",
+      "              \"id\": null\n",
+      "            }\n",
+      "          ]\n",
+      "        }\n",
+      "      ], \n",
+      "      \"errorDescription\": null, \n",
+      "      \"lastUpdated\": \"2018-06-11 13:35:46\", \n",
+      "      \"managementIpAddress\": \"10.10.22.74\", \n",
+      "      \"serialNumber\": \"FXS1932Q1SE\", \n",
+      "      \"reachabilityFailureReason\": \"\", \n",
+      "      \"softwareVersion\": \"16.6.1\", \n",
+      "      \"snmpLocation\": \"\", \n",
+      "      \"tagCount\": \"0\"\n",
+      "    }\n",
+      "  }\n",
+      "]\n"
+     ]
+    }
+   ],
+   "source": [
+    "print json.dumps(response,indent=2)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "https://sandboxdnac.cisco.com:8080/dna/intent/api/v1/user-enrichment\n"
+     ]
+    }
+   ],
+   "source": [
+    "headers =  {'entity_type': 'mac_address', \n",
+    "            'entity_value': 'c8:4c:75:68:b2:c0',\n",
+    "            '__runsync' : 'True'}\n",
+    "\n",
+    "response = get_url(\"dna/intent/api/v1/user-enrichment\", headers=headers)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[\n",
+      "  {\n",
+      "    \"connectedDevice\": [\n",
+      "      {\n",
+      "        \"deviceDetails\": {\n",
+      "          \"macAddress\": \"f8:7b:20:67:62:80\", \n",
+      "          \"upTime\": \"150 days, 23:17:51.39\", \n",
+      "          \"bootDateTime\": \"2018-01-11 14:42:26\", \n",
+      "          \"family\": \"Switches and Hubs\", \n",
+      "          \"snmpContact\": \"\", \n",
+      "          \"lineCardCount\": \"2\", \n",
+      "          \"series\": \"Cisco Catalyst 9300 Series Switches\", \n",
+      "          \"errorCode\": null, \n",
+      "          \"interfaceCount\": \"41\", \n",
+      "          \"tunnelUdpPort\": null, \n",
+      "          \"id\": \"7db64c76-60d6-4ba7-a3cd-3c9efe8b652b\", \n",
+      "          \"inventoryStatusDetail\": \"<status><general code=\\\"SUCCESS\\\"/></status>\", \n",
+      "          \"associatedWlcIp\": \"\", \n",
+      "          \"instanceUuid\": \"7db64c76-60d6-4ba7-a3cd-3c9efe8b652b\", \n",
+      "          \"lastUpdateTime\": 1528725609974, \n",
+      "          \"reachabilityStatus\": \"Reachable\", \n",
+      "          \"hostname\": \"cat_9k_1.abc.inc\", \n",
+      "          \"memorySize\": \"889226872\", \n",
+      "          \"roleSource\": \"AUTO\", \n",
+      "          \"collectionInterval\": \"Global Default\", \n",
+      "          \"platformId\": \"C9300-24UX\", \n",
+      "          \"collectionStatus\": \"Managed\", \n",
+      "          \"role\": \"ACCESS\", \n",
+      "          \"location\": null, \n",
+      "          \"type\": \"Cisco Catalyst 9300 Switch\", \n",
+      "          \"locationName\": null, \n",
+      "          \"lineCardId\": \"1cd043ef-aaf7-4b2e-b720-7af782b98b1c, a2b2467b-1692-46d4-8c64-e1765945efc1\", \n",
+      "          \"waasDeviceMode\": null, \n",
+      "          \"apManagerInterfaceIp\": \"\", \n",
+      "          \"neighborTopology\": [\n",
+      "            {\n",
+      "              \"errorCode\": 5000, \n",
+      "              \"message\": \"An internal has error occurred while processing this request.\", \n",
+      "              \"detail\": \"An internal has error occurred while processing this request.\"\n",
+      "            }\n",
+      "          ], \n",
+      "          \"errorDescription\": null, \n",
+      "          \"lastUpdated\": \"2018-06-11 14:00:09\", \n",
+      "          \"managementIpAddress\": \"10.10.22.66\", \n",
+      "          \"serialNumber\": \"FCW2136L0AK\", \n",
+      "          \"reachabilityFailureReason\": \"\", \n",
+      "          \"softwareVersion\": \"16.6.1\", \n",
+      "          \"snmpLocation\": \"\", \n",
+      "          \"tagCount\": \"0\"\n",
+      "        }\n",
+      "      }\n",
+      "    ], \n",
+      "    \"userDetails\": {\n",
+      "      \"hostMac\": \"C8:4C:75:68:B2:C0\", \n",
+      "      \"hostName\": null, \n",
+      "      \"userId\": null, \n",
+      "      \"connectionStatus\": \"CONNECTED\", \n",
+      "      \"subType\": \"UNKNOWN\", \n",
+      "      \"frequency\": null, \n",
+      "      \"rxBytes\": null, \n",
+      "      \"id\": \"C8:4C:75:68:B2:C0\", \n",
+      "      \"authType\": null, \n",
+      "      \"ssid\": null, \n",
+      "      \"dnsFailure\": null, \n",
+      "      \"port\": null, \n",
+      "      \"location\": \"Sydney/NSD5\", \n",
+      "      \"onboardingTime\": null, \n",
+      "      \"healthScore\": [\n",
+      "        {\n",
+      "          \"healthType\": \"OVERALL\", \n",
+      "          \"reason\": \"\", \n",
+      "          \"score\": 10\n",
+      "        }, \n",
+      "        {\n",
+      "          \"healthType\": \"ONBOARDED\", \n",
+      "          \"reason\": \"\", \n",
+      "          \"score\": 4\n",
+      "        }, \n",
+      "        {\n",
+      "          \"healthType\": \"CONNECTED\", \n",
+      "          \"reason\": \"\", \n",
+      "          \"score\": 6\n",
+      "        }\n",
+      "      ], \n",
+      "      \"channel\": null, \n",
+      "      \"connectedDevice\": [], \n",
+      "      \"hostVersion\": null, \n",
+      "      \"issueCount\": 0, \n",
+      "      \"dataRate\": null, \n",
+      "      \"apGroup\": null, \n",
+      "      \"avgSnr\": null, \n",
+      "      \"dnsSuccess\": null, \n",
+      "      \"lastUpdated\": 1528484918341, \n",
+      "      \"hostIpV6\": [], \n",
+      "      \"hostOs\": null, \n",
+      "      \"hostIpV4\": \"10.10.22.98\", \n",
+      "      \"snr\": null, \n",
+      "      \"vlanId\": \"1\", \n",
+      "      \"avgRssi\": null, \n",
+      "      \"onboarding\": {\n",
+      "        \"dhcpServerIp\": null, \n",
+      "        \"averageAssocDuration\": null, \n",
+      "        \"aaaServerIp\": null, \n",
+      "        \"assocDoneTime\": null, \n",
+      "        \"dhcpDoneTime\": null, \n",
+      "        \"averageRunDuration\": null, \n",
+      "        \"averageDhcpDuration\": null, \n",
+      "        \"maxAssocDuration\": null, \n",
+      "        \"averageAuthDuration\": null, \n",
+      "        \"authDoneTime\": null, \n",
+      "        \"maxAuthDuration\": null, \n",
+      "        \"maxDhcpDuration\": null, \n",
+      "        \"maxRunDuration\": null\n",
+      "      }, \n",
+      "      \"txBytes\": null, \n",
+      "      \"hostType\": \"WIRED\", \n",
+      "      \"rssi\": null, \n",
+      "      \"clientConnection\": \"cat_9k_1.abc.inc\"\n",
+      "    }\n",
+      "  }\n",
+      "]\n"
+     ]
+    }
+   ],
+   "source": [
+    "print json.dumps(response,indent=2)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 2",
+   "language": "python",
+   "name": "python2"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 2
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython2",
+   "version": "2.7.14"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}

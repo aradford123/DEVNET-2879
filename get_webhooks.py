@@ -15,7 +15,7 @@ def main(token):
 
 if __name__ == "__main__":
     if len(sys.argv) == 1:
-        token="475e0feb-c5ac-4e64-b685-e6aaf8b4ccf2"
+        token="927d59d5-f0f4-4155-a7d7-00718b33d74d"
     else:
         token = sys.argv[1]
     main(token)

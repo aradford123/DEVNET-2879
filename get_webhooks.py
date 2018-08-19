@@ -15,6 +15,7 @@ def main(token):
 
 if __name__ == "__main__":
     if len(sys.argv) == 1:
+        # default webhook test
         token="927d59d5-f0f4-4155-a7d7-00718b33d74d"
     else:
         token = sys.argv[1]

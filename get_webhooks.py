@@ -7,6 +7,7 @@ import json
 def main(token):
     response = requests.get("https://webhook.site/token/{}/requests?page=0".format(token))
     response.raise_for_status()
+    print response.json()
     for wh in response.json()['data']:
         data = wh['content']
         if data != "":
